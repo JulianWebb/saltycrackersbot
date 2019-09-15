@@ -72,5 +72,27 @@ module.exports = class DBHandler {
         let statement = this.database.prepare('UPDATE "user_info" SET on_server = 0 WHERE user_id = ?').bind(userID);
         return statement.run();
     }
+
+    updateLastMessage(userID, messageTime) {
+        let statement = this.database.prepare('UPDATE "user_info" SET last_message = @last WHERE user_id = @user');
+        return statement.run({user: userID, last: messageTime});
+    }
+
+    getLastMessage(userID) {
+        let statement = this.database.prepare('SELECT last_message FROM user_info WHERE user_id = ?').bind(userID);
+        let result = statement.get();
+
+        return typeof result == 'undefined' ? '1970-01-01T00:00:00.00Z' : result['last_message'];
+    }
+
+    incrementMessageCount(userID) {
+        let statement = this.database.prepare('UPDATE user_info SET message_count = message_count + 1 WHERE user_id = ?').bind(userID);
+        return statement.run();
+    }
+
+    canPolitick(userID) {
+        let statement = this.database.prepare('UPDATE user_info SET can_politick = 1 WHERE user_id = ?').bind(userID);
+        return statement.run();
+    }
 }
 

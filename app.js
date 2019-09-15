@@ -9,7 +9,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.config = require('./config.json');
-client.db = new Database(client.config.database);
+client.db = new Database(client.config.database, client.config.dbVerbose ? console.log : null);
 
 client.commands = {};
 client.aliases = {};

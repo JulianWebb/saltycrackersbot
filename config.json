@@ -1,5 +1,6 @@
 {
     "database" : "database.sqlite",
+    "dbVerbose" : false,
     "prefix" : ">",
     "gatekeeper" : {
         "channelBlacklist" : [
