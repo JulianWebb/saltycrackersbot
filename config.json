@@ -1,0 +1,14 @@
+{
+    "database" : "database.sqlite",
+    "prefix" : ">",
+    "gatekeeper" : {
+        "channelBlacklist" : [
+            "622367784684224525"
+        ],
+        "requirements" : {
+            "msgLength" : 10,
+            "msgFrequencyThreshold" : 30,
+            "waitingPeriod" : 20160
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "saltycrackersbot",
+  "version": "0.1.0",
+  "description": "Example of discord bot for EGS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianWebb/saltycrackersbot.git"
+  },
+  "author": "Julian Webb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JulianWebb/saltycrackersbot/issues"
+  },
+  "homepage": "https://github.com/JulianWebb/saltycrackersbot#readme",
+  "dependencies": {
+    "better-sqlite3": "^5.4.3",
+    "cron": "^1.7.2",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.1.0"
+  }
+}
