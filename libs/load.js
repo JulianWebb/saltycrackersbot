@@ -2,6 +2,9 @@
 const fs = require('fs');
 
 module.exports = (client) => {
+    client.commands = {};
+    client.aliases = {};
+
 
     //Load Modules
     fs.readdir('./modules/', (err, files) => {

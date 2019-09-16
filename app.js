@@ -14,10 +14,6 @@ client.db = new Database(client.config.database, client.config.dbVerbose ? conso
 
 client.load = require('./libs/load');
 
-client.commands = {};
-client.aliases = {};
-
-
 const init = async () => {
     client.load(client);
 
