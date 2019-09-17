@@ -47,19 +47,15 @@ module.exports = class DBHandler {
     }
 
     userJoined(user) {
-        let time = new Date(user.joined);
-        let hour = time.getUTCHours().toLocaleString('en-CA', {minimumIntegerDigits: 2});
-        let minute = time.getUTCMinutes().toLocaleString('en-CA', {minimumIntegerDigits: 2});
-        
         if (!this.userExists(user.id)) {
-            console.log(`[${hour}:${minute}] Adding ${user.tag} to datatbase`);
+            client.log(`Adding ${user.tag} to database`);
             this.addUser({
                 id: user.id,
                 tag:  user.tag,
                 joined: user.joined
             });
         } else {
-            console.log(`[${hour}:${minute}] ${user.tag} already in database, updating record`);
+            client.log(`${user.tag} already in database, updating record`);
             this.updateUser({
                 id: user.id,
                 tag: user.tag,

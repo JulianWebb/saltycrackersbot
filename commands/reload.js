@@ -1,11 +1,11 @@
 // reload
 
 exports.run = (client, message, args) => {
-    console.log('Reloading')
+    client.log('Reloading Modules, Commands, Events')
 
     // Needed to remove duplicates
     for (event of client.eventNames()) {
-        console.log('Removing listeners for ' + event);
+        client.log('Removing Listeners for ' + event);
         client.removeAllListeners(event);
     }
 

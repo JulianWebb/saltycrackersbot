@@ -13,32 +13,25 @@ exports.guildMemberAdd = (client, member) => {
 }
 
 exports.guildMemberRemove = (client, member) => {
-    let date = new Date();
-    let hour = date.getUTCHours().toLocaleString('en-CA', {minimumIntegerDigits: 2});
-    let minute = date.getUTCMinutes().toLocaleString('en-CA', {minimumIntegerDigits: 2});
-
-    console.log(`[${hour}:${minute}] Updating ${member.user.tag} in database`);
+    client.log(`Updating ${member.user.tag} in database`);
     client.db.userLeftServer(member.user.id);
 }
 
 exports.message = (client, message) => {
-    let hour = message.createdAt.getUTCHours().toLocaleString('en-UK', {minimumIntegerDigits: 2});
-    let minute = message.createdAt.getUTCMinutes().toLocaleString('en-UK', {minimumIntegerDigits: 2});
-
     let userID = message.author.id;
     let msgTime = message.createdAt;
     let msgChan = message.channel.id;
 
     if (client.db.userExists(userID)) {
-        console.log(`[${hour}:${minute}] ${message.channel.guild.name.replace(' ', '_')} ${message.author.tag} in database already`)
+        client.log(`${message.channel.guild.name.replace(' ', '_')} ${message.author.tag} in database already`)
         let lastTime = new Date(client.db.getLastMessage(userID));
         let timeSince = (msgTime - lastTime) / 1000;
         if (timeSince >= client.config.gatekeeper.requirements.msgFrequencyThreshold) {
-            console.log(`[${hour}:${minute}] ${message.channel.guild.name.replace(' ', '_')} ${message.author.tag} met frequency threshold`)
+            client.log(`${message.channel.guild.name.replace(' ', '_')} ${message.author.tag} met frequency threshold`)
             if (!(msgChan in client.config.gatekeeper.channelBlacklist)) {
-                console.log(`[${hour}:${minute}] ${message.channel.guild.name.replace(' ', '_')} ${message.channel.name.toUpperCase()} not in blacklist`)
+                client.log(`${message.channel.guild.name.replace(' ', '_')} ${message.channel.name.toUpperCase()} not in blacklist`)
                 client.db.incrementMessageCount(userID);
-                // TODO: add check to see if the user meets the requirements
+                // TODO: add check to see if the user meets the requirements and if so display opportunity
             }
         }
     } else {

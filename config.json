@@ -11,5 +11,8 @@
             "msgFrequencyThreshold" : 30,
             "waitingPeriod" : 20160
         }
+    },
+    "permissions" : {
+        
     }
 }

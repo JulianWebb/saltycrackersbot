@@ -3,9 +3,7 @@
 exports.name = "message"
 
 exports.func = (client, message) => {
-    let hour = message.createdAt.getUTCHours().toLocaleString('en-UK', {minimumIntegerDigits: 2});
-    let minute = message.createdAt.getUTCMinutes().toLocaleString('en-UK', {minimumIntegerDigits: 2});
-    console.log(`[${hour}:${minute}] ${message.channel.guild.name.replace(' ', '_')}:#${message.channel.name.toUpperCase()} @${message.author.tag}: ${message.content}`)
+    client.log(`${message.channel.guild.name.replace(' ', '_')}:#${message.channel.name.toUpperCase()} @${message.author.tag}: ${message.content}`)
     
     // Command Handling
     // TODO: Add in perm level checking
