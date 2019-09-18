@@ -19,5 +19,6 @@ exports.run = (client, message, args) => {
 exports.config = {
     name: 'reload',
     aliases : [ 'load' ],
-    description: "Hot Reload Command"
+    description: "Hot Reload Command",
+    permission: "Administrator"
 }

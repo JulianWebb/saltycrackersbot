@@ -12,7 +12,18 @@
             "waitingPeriod" : 20160
         }
     },
-    "permissions" : {
-        
-    }
+    "permissions" : [
+        {
+            "name" : "Administrator",
+            "role" : ["623464209132552193"]
+        },
+        {
+            "name" : "Moderator",
+            "role" : ["623464284793470986"]
+        },
+        {
+            "name" : "Regular",
+            "role" : ["623464425562832917"]
+        }
+    ]
 }

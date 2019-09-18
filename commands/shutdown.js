@@ -7,5 +7,6 @@ exports.run = (client, message, args) => {
 exports.config = {
     name: "shutdown",
     aliases: ["exit"],
-    description: "Shuts down the bot"
+    description: "Shuts down the bot",
+    permission: "Administrator"
 }
