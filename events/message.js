@@ -4,7 +4,6 @@ exports.name = "message"
 
 exports.func = (client, message) => {
     client.log(`${message.channel.guild.name.replace(' ', '_')}:#${message.channel.name.toUpperCase()} @${message.author.tag}: ${message.content}`)
-    
     // Command Handling
     // TODO: Add in perm level checking
     if (message.author.bot || message.author.id == client.user.id) return;
@@ -14,10 +13,16 @@ exports.func = (client, message) => {
 
         const command = args.shift().toLowerCase();
 
-        if (command in client.commands) {
-            client.commands[command].run(client, message, args);
-        } else if (command in client.aliases) {
-            client.aliases[command].run(client, message, args);
+        let cmd = client.commands[command] || client.aliases[command];
+
+        if (cmd) {
+            let userRoles = message.member.roles;
+            if (client.perms.check(userRoles, cmd.config.permission)) {
+                client.log(`User ${message.author.tag} ran command: ${cmd.config.name}`)
+                cmd.run(client, message, args);
+            } else {
+                client.log(`User ${message.author.tag} attempted command: ${cmd.config.name}`)
+            }
         }
     }
 }

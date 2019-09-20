@@ -7,5 +7,6 @@ exports.run = (client, message, args) => {
 exports.config = {
     name: 'ping',
     aliases : [ 'pong' ],
-    description: "Simple reply command"
+    description: "Simple reply command",
+    permission: 'everyone'
 }

@@ -8,5 +8,5 @@ exports.config = {
     name: "shutdown",
     aliases: ["exit"],
     description: "Shuts down the bot",
-    permission: "Administrator"
+    permission: "administrator"
 }

@@ -45,7 +45,7 @@ module.exports = (client) => {
 
             client.commands[name] = {
                 run: cmd.run,
-                conf: cmd.conf
+                config: cmd.config
             };
 
             cmd.config.aliases.forEach(alias => {

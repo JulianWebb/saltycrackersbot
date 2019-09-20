@@ -14,15 +14,15 @@
     },
     "permissions" : [
         {
-            "name" : "Administrator",
+            "name" : "administrator",
             "role" : ["623464209132552193"]
         },
         {
-            "name" : "Moderator",
+            "name" : "moderator",
             "role" : ["623464284793470986"]
         },
         {
-            "name" : "Regular",
+            "name" : "regular",
             "role" : ["623464425562832917"]
         }
     ]

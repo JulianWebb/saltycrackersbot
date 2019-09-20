@@ -20,5 +20,5 @@ exports.config = {
     name: 'reload',
     aliases : [ 'load' ],
     description: "Hot Reload Command",
-    permission: "Administrator"
+    permission: "administrator"
 }
